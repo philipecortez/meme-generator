@@ -1,0 +1,15 @@
+.app-header {
+  background-color: rebeccapurple;
+  color: white;
+  font-size: xx-large;
+  font-family: "Roboto", sans-serif;
+  padding: 10px 30px 10px;
+  background-image: linear-gradient(to right, #8659b3 , #240742);
+
+}
+
+.logo {
+    height: 100px;
+    width: 120px;
+    margin-left: 20px;
+}
