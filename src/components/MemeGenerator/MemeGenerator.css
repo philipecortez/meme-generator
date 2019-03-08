@@ -1,0 +1,41 @@
+.meme-form {
+    padding: 30px;
+}
+
+.meme-form button {
+    color: white;
+    background-color: #8659b3;
+    font-size: large;
+    border: none;
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    width: 30%;
+}
+
+.meme-form input[type="text"] {
+    margin: 10px 0 10px 0;
+    display: block;
+}
+
+.meme-form label {
+    color: #240742;
+    font-size: large;
+    font-family: "Roboto", sans-serif;
+}
+
+.meme-txt-input {
+    flex-basis: 0%;
+}
+
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
