@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './MemeGenerator/MemeGenerator.css'
+import { EventEmitter } from 'events';
 class MemeGenerator extends Component {
     constructor() {
         super()
@@ -11,7 +12,8 @@ class MemeGenerator extends Component {
             allMemeImgs: []
         }
 
-        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.getRandomImg = this.getRandomImg.bind(this)
     }
 
     componentDidMount() {
@@ -28,10 +30,22 @@ class MemeGenerator extends Component {
         this.setState({[name]: value})
     }
 
+    handleSubmit(event) {
+        event.preventDefault()
+        this.setState({randomImg: this.getRandomImg()})
+    }
+
+    getRandomImg() {
+        const max = this.state.allMemeImgs.length
+        const imgIndex = Math.floor(Math.random() * Math.floor(max));
+        const {url} = this.state.allMemeImgs[imgIndex]
+        return url
+    }
+
     render() {
         return(
             <div>
-                <form className="meme-form">
+                <form className="meme-form" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="meme-txt-input column">
                             <label>
@@ -45,8 +59,8 @@ class MemeGenerator extends Component {
                         </div>
                         <div className="meme column">
                             <img src={this.state.randomImg} alt="meme" />
-                            <h2>Teste Top</h2>
-                            <h2>Teste Bottom</h2>
+                            <h2>{this.state.topText || "Top Text"}</h2>
+                            <h2>{this.state.bottomText || "Bottom text"}</h2>
                         </div>
                     </div>
                     <div className="row">
